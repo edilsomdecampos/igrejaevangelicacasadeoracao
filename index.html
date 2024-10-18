@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/pt-br.js"></script>
+  <link rel="stylesheet" href="ieco.css">
+  <title>Igreja Evangélica Casa de Oração - Cultos Semana</title>
+</head>
+<body>
+  <script src="ieco.js"></script>
+
+<div class="container">
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+      <path fill="yellow" d="M12 3L4 9v12h16V9l-8-6zm0 2.3l6 4.5v9.2H6V9.8l6-4.5zm-3 6.7v4h2v-4h2v4h2v-4h1v6H8v-6h1z"/>
+    </svg>
+  </div>
+  <h1>Igreja Evangélica Casa de Oração</h1>
+  <h2>Cultos Semanais</h2>
+  
+  <div class="clock" id="clock"></div>
+  <div class="calendar" id="calendar"></div>
+  
+  <div class="cultos">
+    <div class="culto">
+      <div class="culto-title">Terça-feira - Culto de Ensino da Palavra e Oração</div>
+      <div class="culto-time">Horário: 19:30 horas</div>
+      <div class="participants">
+        <div class="participant-group">
+          Adultos: <span id="adultCountTerca" class="participant-count">0</span>
+          <button onclick="adjustParticipant('terca', 'adult', 1)">+</button>
+          <button onclick="adjustParticipant('terca', 'adult', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Crianças: <span id="childCountTerca" class="participant-count">0</span>
+          <button onclick="adjustParticipant('terca', 'child', 1)">+</button>
+          <button onclick="adjustParticipant('terca', 'child', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Visitantes: <span id="visitorCountTerca" class="participant-count">0</span>
+          <button onclick="adjustParticipant('terca', 'visitor', 1)">+</button>
+          <button onclick="adjustParticipant('terca', 'visitor', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Total: <span id="totalCountTerca" class="participant-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="culto">
+      <div class="culto-title">Quarta-feira - Encontro com DEUS</div>
+      <div class="culto-time">Horário: 15:00 horas</div>
+      <div class="participants">
+        <div class="participant-group">
+          Adultos: <span id="adultCountQuarta" class="participant-count">0</span>
+          <button onclick="adjustParticipant('quarta', 'adult', 1)">+</button>
+          <button onclick="adjustParticipant('quarta', 'adult', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Crianças: <span id="childCountQuarta" class="participant-count">0</span>
+          <button onclick="adjustParticipant('quarta', 'child', 1)">+</button>
+          <button onclick="adjustParticipant('quarta', 'child', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Visitantes: <span id="visitorCountQuarta" class="participant-count">0</span>
+          <button onclick="adjustParticipant('quarta', 'visitor', 1)">+</button>
+          <button onclick="adjustParticipant('quarta', 'visitor', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Total: <span id="totalCountQuarta" class="participant-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="culto">
+      <div class="culto-title">Quinta-feira - Culto de Oportunidade e Testemunho</div>
+      <div class="culto-time">Horário: 19:30 horas</div>
+      <div class="checkbox-container">
+        <input type="checkbox" id="campanha" onclick="toggleCampanha()">
+        <label for="campanha">Culto de Campanha</label>
+      </div>
+      <div class="participants">
+        <div class="participant-group">
+          Adultos: <span id="adultCountQuinta" class="participant-count">0</span>
+          <button onclick="adjustParticipant('quinta', 'adult', 1)">+</button>
+          <button onclick="adjustParticipant('quinta', 'adult', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Crianças: <span id="childCountQuinta" class="participant-count">0</span>
+          <button onclick="adjustParticipant('quinta', 'child', 1)">+</button>
+          <button onclick="adjustParticipant('quinta', 'child', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Visitantes: <span id="visitorCountQuinta" class="participant-count">0</span>
+          <button onclick="adjustParticipant('quinta', 'visitor', 1)">+</button>
+          <button onclick="adjustParticipant('quinta', 'visitor', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Total: <span id="totalCountQuinta" class="participant-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="culto">
+      <div class="culto-title">Domingo - Culto da Família</div>
+      <div class="culto-time">Horário: 19:00 horas</div>
+      <div class="checkbox-container">
+        <input type="checkbox" id="ceia" onclick="toggleCeia()">
+        <label for="ceia">Ceia do Senhor</label>
+      </div>
+      <div class="participants">
+        <div class="participant-group">
+          Adultos: <span id="adultCountDomingo" class="participant-count">0</span>
+          <button onclick="adjustParticipant('domingo', 'adult', 1)">+</button>
+          <button onclick="adjustParticipant('domingo', 'adult', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Crianças: <span id="childCountDomingo" class="participant-count">0</span>
+          <button onclick="adjustParticipant('domingo', 'child', 1)">+</button>
+          <button onclick="adjustParticipant('domingo', 'child', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Visitantes: <span id="visitorCountDomingo" class="participant-count">0</span>
+          <button onclick="adjustParticipant('domingo', 'visitor', 1)">+</button>
+          <button onclick="adjustParticipant('domingo', 'visitor', -1)">-</button>
+        </div>
+        <div class="participant-group">
+          Total: <span id="totalCountDomingo" class="participant-count">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <button onclick="sendReport()">Enviar Relatório</button>
+  
+  <div id="reportArea"></div>
+  
+  <div class="theme-buttons">
+    <button onclick="changeTheme('light')">Claro</button>
+    <button onclick="changeTheme('dark')">Escuro</button>
+    <button onclick="changeTheme('colorful')">Colorido</button>
+  </div>
+</div>
+</body>
+</html>
